@@ -20,6 +20,8 @@ copyDirRecursive("examples","dist/examples").then(()=>{
     processPage("examples/basic/index.html");
     processPage("examples/geoposition/index.html");
     processPage("examples/panorama/index.html");
+    processPage("examples/vuforia/index.html");
+    processPage("examples/vuforia-aframe-logo/index.html");
 });
 
 function copyDirRecursive(src,dst) {
