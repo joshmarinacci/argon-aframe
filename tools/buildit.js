@@ -1,7 +1,5 @@
-console.log('building');
-
-var FS = require('fs');
-var PATHS = require('path');
+const FS = require('fs');
+const PATHS = require('path');
 
 const OUTDIR = "dist";
 mkdir(OUTDIR);//if(!FS.existsSync(OUTDIR)) FS.mkdirSync(OUTDIR);
@@ -18,7 +16,7 @@ function mkdir(dir) {
     if(!FS.existsSync(dir)) FS.mkdirSync(dir);
 }
 copyDirRecursive("examples","dist/examples").then(()=>{
-    console.log("fully done with copying");
+    console.log("finished copying examples dir");
     processPage("examples/basic/index.html");
     processPage("examples/geoposition/index.html");
     processPage("examples/panorama/index.html");
@@ -48,7 +46,7 @@ function copyFile(fpath,dpath) {
 
 function processPage(path) {
     const parsed = PATHS.parse(path);
-    console.log(PATHS.parse(path));
+    // console.log(PATHS.parse(path));
 
     var file = FS.readFileSync(path).toString();
     file = file.replace(/{{ site.keywords }}/g, config.keywords);
@@ -60,7 +58,7 @@ function processPage(path) {
     const fdir = PATHS.join(OUTDIR,parsed.dir);
     if (!FS.existsSync(fdir)) FS.mkdirSync(fdir);
     const fpath = PATHS.join(OUTDIR,parsed.dir,parsed.base);
-    console.log(fpath);
+    console.log('rewrote ', fpath);
 
     FS.writeFileSync(fpath, file);
 }
