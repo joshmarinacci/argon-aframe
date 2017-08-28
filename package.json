@@ -16,6 +16,8 @@
     "distsite": "jekyll build --config _config-master.yml",
     "postpublish": "npm run dist",
     "test": "karma start ./tests/karma.conf.js",
+    "build-lib":"webpack",
+    "build-site": "node tools/buildit.js",
     "unboil": "node scripts/unboil.js"
   },
   "repository": {
@@ -44,6 +46,7 @@
   "dependencies": {
     "aframe": "^0.5.0",
     "@argonjs/argon": "^1.4.0-0"
+    "three": "^0.87.1"
   },
   "devDependencies": {
     "browserify": "^12.0.1",
@@ -65,6 +68,6 @@
     "mustache": "^2.3.0",
     "ncp": "^2.0.0",
     "rimraf": "^2.6.1",
-    "webpack": "^1.12.9"
+    "webpack": "^3.5.5"
   }
 }
